@@ -1,0 +1,125 @@
+/* Start Global Rules  */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #111;
+}
+
+:root {
+  --main-transition: .3s;
+}
+/* End Global Rules  */
+
+.big-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.container {
+  background-color: #222;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.container .head {
+  padding: 30px;
+  background-color: #1d1d1d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #2A2A2A;
+}
+
+.container .head h1 {
+  margin: 0;
+  font-size: 23px;
+  letter-spacing: -2px;
+  color: #ccc;
+}
+
+.container .head .account {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.container .head .account i {  
+  font-size: 25px;
+  background-color: #ccc;
+  color: #111;
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+
+.container .head .account .sign-up,
+.container .head .account .log-in  {
+  background-color: #ccc;
+  color: #111;
+  padding: 8px 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+
+.container .head .account .sign-up:hover,
+.container .head .account .log-in:hover,
+.container .head .account i:hover {
+  color: #ccc;
+  background-color: #333;
+}
+
+.container .content {
+  padding: 0 30px 30px;
+}
+
+
+
+
+
+
+
+
+@media (max-width: 400px) {
+  .big-container {
+    padding: 20px 10px;
+  }
+  .container .head {
+    padding: 15px;
+  }
+  .container .head h1 {
+    font-size: 20px;
+  }
+  .container .head .account i {
+    font-size: 20px;
+    width: 32px;
+    height: 32px;
+  }
+  .container .head .account .sign-up,
+  .container .head .account .log-in  {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+}

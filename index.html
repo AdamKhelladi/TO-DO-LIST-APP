@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+
+    <!-- Render All Elements Normaly -->
+    <link rel="stylesheet" href="normalize.css"/>
+      
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800&family=Faster+One&family=Jomhuria&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Poppins:wght@200;400;700&family=Roboto:wght@100;300;400;500;700;900&family=Work+Sans:wght@200;300;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Main Template Css File -->
+    <link rel="stylesheet" href="style.css"/>
+  </head>
+  <body>
+    <div class="big-container">
+      <div class="container">
+        <div class="head">
+          <h1>TO DO LIST</h1>
+          <div class="account">
+            <div class="sign-up">Sign-up</div>
+            <div class="log-in">Log-in</div>
+            <i class="fa-regular fa-user"></i>
+          </div>
+        </div>
+
+        <div class="content">
+          <div class="add-task">
+            <input type="text">
+            <span class="plus">Add Task</span>
+          </div>
+
+          <div class="tasks-content">
+            <span class="no-tasks">No Tasks To Shwo</span>
+          </div>
+
+          <div class="tasks-stats">
+            <div class="tasks-count">
+              Tasks: <span>0</span>
+            </div>
+            <div class="tasks-completed">
+              Completed: <span>0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="main.js"></script>
+  </body>
+
+</html>
+
