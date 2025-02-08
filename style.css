@@ -24,14 +24,19 @@ body {
 
 .big-container {
   max-width: 1000px;
+  height: 100vh;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
 .container {
   background-color: #222;
+  height: 100%;
   border-radius: 24px;
   overflow: hidden;
+  border: 1px solid #2A2A2A;
+  position: relative;
+
 }
 
 .container .head {
@@ -92,7 +97,92 @@ body {
 }
 
 .container .content {
-  padding: 0 30px 30px;
+  height: 100%;
+  padding: 30px;
+  text-align: center;
+  /* position: relative; */
+}
+
+.container .content .add-task {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container .content .add-task input {
+  height: 100%;
+  width: 70%;
+  margin-right: 20px;
+  padding: 15px;
+  font-size: 16px;
+  color: #ccc;
+  background-color: #333;
+  border: 3px solid #3A3A3A;
+  border-radius: 24px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.container .content .add-task input::placeholder {
+  color: #999;
+}
+.container .content .add-task input:focus {
+  border-color: #444;
+}
+
+.container .content .add-task .plus {
+  background-color: #ccc;
+  color: #111;
+  padding: 14px 20px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+.container .content .add-task .plus:hover {
+  color: #ccc;
+  background-color: #333;
+}
+
+.container .content .tasks-content {
+  height: 100%;
+  padding: 20px 0;
+}
+
+.container .content .no-tasks {
+  display: block;
+  color: #ccc;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 30px;
+}
+
+
+
+.container .content .tasks-stats {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1d1d1d;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #2A2A2A;
+}
+
+.container .content .tasks-stats .tasks-count,
+.container .content .tasks-stats .tasks-completed {
+  background-color: #ccc;
+  color: #111;
+  padding: 10px 14px;
+  font-size: 17px;
+  font-weight: 700;
+  border-radius: 24px;
+  transition: var(--main-transition);
 }
 
 
@@ -100,9 +190,7 @@ body {
 
 
 
-
-
-@media (max-width: 400px) {
+@media (max-width: 667px) {
   .big-container {
     padding: 20px 10px;
   }
@@ -121,5 +209,18 @@ body {
   .container .head .account .log-in  {
     padding: 6px 10px;
     font-size: 14px;
+  }
+
+  .container .content {
+    padding: 20px 10px;
+  }
+  .container .content .add-task input {
+    width: 74%;
+    margin-right: 10px;
+  }  
+  .container .content .add-task .plus {
+    padding: 6px 20px;
+    font-size: 14px;
+    font-weight: 600;
   }
 }
