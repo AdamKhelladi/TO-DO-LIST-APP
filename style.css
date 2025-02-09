@@ -214,6 +214,9 @@ body {
   border: 1px solid var(--color-input-focus-border);
   overflow: hidden;
 }
+.container .content .tasks-content .boxes .box.done {
+  opacity: .5;
+}
 
 .container .content .tasks-content .boxes .box::before {
   content: ""; /* Creates the pseudo-element */
@@ -234,13 +237,13 @@ body {
   opacity: 1; /* Make it visible on hover */
 }
 
-.container .content .tasks-content .boxes .box div,
+.container .content .tasks-content .boxes .box .box-title,
 .container .content .tasks-content .boxes .box p {
   position: relative;
   z-index: 2; /* Ensure the content stays above the pseudo-element */
 }
 
-.container .content .tasks-content .boxes .box div {
+.container .content .tasks-content .boxes .box .box-title {
   display: block;
   background-color: #222;
   padding: 10px;
@@ -278,6 +281,7 @@ body {
   cursor: pointer;
   transition: var(--main-transition);
   user-select: none;
+  z-index: 9999999;
 }
 
 .container .content .tasks-content .boxes .box.targeted-box .update .delete-task:hover,
@@ -366,6 +370,18 @@ body {
     font-weight: 600;
   }
   .container .content .tasks-content .boxes {
-    max-height: calc(109vh - 370px); 
+    max-height: calc(118vh - 370px); 
   }
+  .container .content .tasks-stats {
+    padding: 10px 20px;
+  }
+  .container .content .tasks-stats .details .tasks-count,
+  .container .content .tasks-stats .details .tasks-completed {
+    padding: 6px 10px;
+    font-size: 15px;
+  }
+.container .content .tasks-stats .delete-all {
+  padding: 6px 10px;
+  font-size: 15px;
+}
 }

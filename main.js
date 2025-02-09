@@ -6,7 +6,7 @@ let boxes = document.querySelector(".boxes");
 let noTasksMsg = document.querySelector(".no-tasks");
 let tasksCount = document.querySelector(".tasks-count span");
 let tasksCompleted = document.querySelector(".tasks-completed span");
-let deleteAll = document.querySelector(".delete");
+let deleteAll = document.querySelector(".delete-all");
 
 window.onload = function () {
   theInput.focus();
@@ -15,7 +15,8 @@ window.onload = function () {
 addBtn.addEventListener("click", function () {
   if (theInput.value !== "") {
     if (noTasksMsg) {
-      noTasksMsg.remove();
+      // noTasksMsg.remove();
+      noTasksMsg.style.display = "none";
     };
 
     createTasks();
@@ -23,13 +24,21 @@ addBtn.addEventListener("click", function () {
   }
 });
 
+deleteAll.addEventListener("click", () => {
+  boxes.innerHTML = "";
+
+  noTasksMsg.style.display = "block";
+  tasksCount.innerHTML = "0";
+  tasksCompleted.innerHTML = "0";
+});
 
 function createTasks() {
   let box = document.createElement("div");
   box.classList.add("box");
 
   let titleOfBox = document.createElement("div");
-  titleOfBox.innerHTML = `Task <span>${boxes.children.length}</span>`;
+  titleOfBox.classList.add("box-title");
+  titleOfBox.innerHTML = `Task <span>${boxes.children.length + 1}</span>`;
 
   let boxContent = document.createElement("p");
   boxContent.innerHTML = theInput.value;
@@ -41,36 +50,69 @@ function createTasks() {
   tasksContainer.appendChild(boxes);
 
   theInput.value = "";
+  tasksCount.innerHTML = boxes.children.length;
 }
 
 
 function updateTask() {
+  Array.from(boxes.children).forEach((box) => {
+    if (box.classList.contains("box")) {
+      box.addEventListener("mouseover", function () {
+        box.classList.add("targeted-box");
 
-  let tasks = boxes.children;
+        if (!box.querySelector(".update")) {
+          let update = document.createElement("div");
+          update.className = "update";
 
-  Array.from(tasks).forEach((element) => {
-    element.addEventListener("mouseover", function (event) {
-      event.target.classList.add("targeted-box");
+          let deleteTask = document.createElement("div");
+          deleteTask.className = "delete-task";
+          deleteTask.textContent = "Delete";
 
-      if (!event.target.querySelector(".update")) {
+          let completedTask = document.createElement("div");
+          completedTask.className = "completed-task";
+          completedTask.textContent = "Completed";
 
-        let update = document.createElement("div");
-        update.classList.add("update");
+          update.append(deleteTask, completedTask);
+          box.appendChild(update);
 
-        let deleteTask = document.createElement("div");
-        update.classList.add("delete-task");
-        deleteTask.innerHTML = "Delete";
+          deleteTask.addEventListener("click", function () {
+            box.remove();
+            // console.log(boxes.children);
 
-        let completedTask = document.createElement("div");
-        update.classList.add("completed-task");
-        completedTask.innerHTML = "Completed";
+            [...boxes.children].forEach((box, index) => {
+              box.querySelector(".box-title span").innerHTML = index+1;
+            })
 
-        update.appendChild(deleteTask);
-        update.appendChild(completedTask);
+            tasksCount.innerHTML = boxes.children.length;
 
-        event.target.appendChild(update);
-      }
+            if (box.classList.contains("done")) {
+              tasksCompleted.innerHTML = parseInt(tasksCompleted.innerHTML) - 1;
+            }
 
-    });
-  })
+            if (boxes.children.length == 0) {
+              noTasksMsg.style.display = "block";
+            }
+          });
+
+          completedTask.addEventListener("click", function () {
+            if (box.classList.toggle("done")) {
+              tasksCompleted.innerHTML =
+                parseInt(tasksCompleted.innerHTML) + 1;
+            } else {
+              tasksCompleted.innerHTML =
+                parseInt(tasksCompleted.innerHTML) - 1;
+            }
+          })
+        }
+      });
+
+      box.addEventListener("mouseleave", function () {
+        box.classList.remove("targeted-box");
+
+        let update = box.querySelector(".update");
+        if (update) update.remove();
+      });
+    }
+  });
 }
+
