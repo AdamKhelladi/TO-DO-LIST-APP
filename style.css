@@ -1,8 +1,24 @@
 /* Start Global Rules  */
+:root {
+  --main-transition: 0.3s;
+  --color-background: #111;
+  --color-container-background: #222;
+  --color-container-border: #2A2A2A;
+  --color-head-background: #1d1d1d;
+  --color-text-light: #ccc;
+  --color-text-dark: #111;
+  --color-button-background: #ccc;
+  --color-button-hover-background: #333;
+  --color-input-background: #333;
+  --color-input-border: #3A3A3A;
+  --color-input-focus-border: #444;
+  --color-placeholder: #999;
+  --color-stats-background: #1d1d1d;
+}
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -14,11 +30,7 @@ html {
 
 body {
   font-family: "Open Sans", sans-serif;
-  background-color: #111;
-}
-
-:root {
-  --main-transition: .3s;
+  background-color: var(--color-background);
 }
 /* End Global Rules  */
 
@@ -30,29 +42,29 @@ body {
 }
 
 .container {
-  background-color: #222;
+  background-color: var(--color-container-background);
   height: 100%;
   border-radius: 24px;
   overflow: hidden;
-  border: 1px solid #2A2A2A;
+  border: 1px solid var(--color-container-border);
   position: relative;
-
 }
 
 .container .head {
   padding: 30px;
-  background-color: #1d1d1d;
+  background-color: var(--color-head-background);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #2A2A2A;
+  border-bottom: 1px solid var(--color-container-border);
 }
 
 .container .head h1 {
   margin: 0;
   font-size: 23px;
   letter-spacing: -2px;
-  color: #ccc;
+  color: var(--color-text-light);
+  user-select: none;
 }
 
 .container .head .account {
@@ -62,10 +74,10 @@ body {
   gap: 10px;
 }
 
-.container .head .account i {  
+.container .head .account i {
   font-size: 25px;
-  background-color: #ccc;
-  color: #111;
+  background-color: var(--color-button-background);
+  color: var(--color-text-dark);
   padding: 10px;
   width: 40px;
   height: 40px;
@@ -78,29 +90,29 @@ body {
 }
 
 .container .head .account .sign-up,
-.container .head .account .log-in  {
-  background-color: #ccc;
-  color: #111;
+.container .head .account .log-in {
+  background-color: var(--color-button-background);
+  color: var(--color-text-dark);
   padding: 8px 12px;
   font-size: 16px;
   font-weight: 600;
   border-radius: 24px;
   cursor: pointer;
   transition: var(--main-transition);
+  user-select: none;
 }
 
 .container .head .account .sign-up:hover,
 .container .head .account .log-in:hover,
 .container .head .account i:hover {
-  color: #ccc;
-  background-color: #333;
+  color: var(--color-text-light);
+  background-color: var(--color-button-hover-background);
 }
 
 .container .content {
   height: 100%;
   padding: 30px;
   text-align: center;
-  /* position: relative; */
 }
 
 .container .content .add-task {
@@ -116,68 +128,187 @@ body {
   margin-right: 20px;
   padding: 15px;
   font-size: 16px;
-  color: #ccc;
-  background-color: #333;
-  border: 3px solid #3A3A3A;
+  color: var(--color-text-light);
+  background-color: var(--color-input-background);
+  border: 3px solid var(--color-input-border);
   border-radius: 24px;
   outline: none;
   transition: border-color 0.3s ease;
 }
 
 .container .content .add-task input::placeholder {
-  color: #999;
+  color: var(--color-placeholder);
 }
+
 .container .content .add-task input:focus {
-  border-color: #444;
+  border-color: var(--color-input-focus-border);
 }
 
 .container .content .add-task .plus {
-  background-color: #ccc;
-  color: #111;
+  background-color: var(--color-button-background);
+  color: var(--color-text-dark);
   padding: 14px 20px;
   font-size: 18px;
   font-weight: 700;
   border-radius: 24px;
   cursor: pointer;
+  user-select: none;
   transition: var(--main-transition);
 }
+
 .container .content .add-task .plus:hover {
-  color: #ccc;
-  background-color: #333;
+  color: var(--color-text-light);
+  background-color: var(--color-button-hover-background);
 }
 
 .container .content .tasks-content {
   height: 100%;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
-.container .content .no-tasks {
+.container .content .tasks-content .no-tasks {
   display: block;
-  color: #ccc;
+  color: var(--color-text-light);
   font-size: 20px;
   font-weight: 500;
   margin-top: 30px;
 }
 
+.container .content .tasks-content .boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
 
+  max-height: calc(100vh - 370px); /* Adjust this based on the space taken by other elements */
+  overflow-y: auto;
+  padding-right: 10px; /* For spacing between content and scrollbar */
+  padding-bottom: 10px;
+}
+
+.container .content .tasks-content .boxes::-webkit-scrollbar {
+  width: 8px; 
+  height: 8px; 
+}
+
+.container .content .tasks-content .boxes::-webkit-scrollbar-thumb {
+  background-color: var(--color-input-background); /* Scrollbar handle color */
+  border-radius: 4px; /* Rounded corners for the scrollbar handle */
+}
+
+.container .content .tasks-content .boxes::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-input-focus-border);
+}
+
+.container .content .tasks-content .boxes::-webkit-scrollbar-track {
+  background-color: var(--color-container-background); 
+  border-radius: 6px; 
+}
+
+
+.container .content .tasks-content .boxes .box {
+  position: relative;
+  background-color: var(--color-input-background);
+  color: var(--color-text-light);
+  border-radius: 24px;
+  border: 1px solid var(--color-input-focus-border);
+  overflow: hidden;
+}
+
+.container .content .tasks-content .boxes .box::before {
+  content: ""; /* Creates the pseudo-element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black for the blur effect */
+  backdrop-filter: blur(8px); /* Applies the blur effect */
+  z-index: 99; /* Place it above the box content */
+  opacity: 0; /* Initially invisible */
+  transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.container .content .tasks-content .boxes .box:hover::before {
+  opacity: 1; /* Make it visible on hover */
+}
+
+.container .content .tasks-content .boxes .box div,
+.container .content .tasks-content .boxes .box p {
+  position: relative;
+  z-index: 2; /* Ensure the content stays above the pseudo-element */
+}
+
+.container .content .tasks-content .boxes .box div {
+  display: block;
+  background-color: #222;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+
+.container .content .tasks-content .boxes .box p {
+  font-size: 15px;
+  font-weight: 400;
+  padding: 15px;
+}
+
+.container .content .tasks-content .boxes .box.targeted-box .update {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: transparent;
+  z-index: 999;
+}
+
+.container .content .tasks-content .boxes .box.targeted-box .update .delete-task,
+.container .content .tasks-content .boxes .box.targeted-box .update .completed-task {
+  background-color: var(--color-button-background);
+  color: var(--color-text-dark);
+  padding: 8px 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: var(--main-transition);
+  user-select: none;
+}
+
+.container .content .tasks-content .boxes .box.targeted-box .update .delete-task:hover,
+.container .content .tasks-content .boxes .box.targeted-box .update .completed-task:hover {
+  color: var(--color-text-light);
+  background-color: var(--color-button-hover-background);
+}
 
 .container .content .tasks-stats {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #1d1d1d;
+  background-color: var(--color-stats-background);
   padding: 20px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #2A2A2A;
+  border-top: 1px solid var(--color-container-border);
 }
 
-.container .content .tasks-stats .tasks-count,
-.container .content .tasks-stats .tasks-completed {
-  background-color: #ccc;
-  color: #111;
+.container .content .tasks-stats .details {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.container .content .tasks-stats .details .tasks-count,
+.container .content .tasks-stats .details .tasks-completed {
+  background-color: var(--color-button-background);
+  color: var(--color-text-dark);
   padding: 10px 14px;
   font-size: 17px;
   font-weight: 700;
@@ -185,10 +316,21 @@ body {
   transition: var(--main-transition);
 }
 
-
-
-
-
+.container .content .tasks-stats .delete-all {
+  background-color: var(--color-button-background);
+  color: var(--color-text-dark);
+  padding: 10px 14px;
+  font-size: 17px;
+  font-weight: 700;
+  border-radius: 24px;
+  cursor: pointer;
+  user-select: none;
+  transition: var(--main-transition);
+}
+.container .content .tasks-stats .delete-all:hover {
+  color: var(--color-text-light);
+  background-color: var(--color-button-hover-background);
+}
 
 @media (max-width: 667px) {
   .big-container {
@@ -206,7 +348,7 @@ body {
     height: 32px;
   }
   .container .head .account .sign-up,
-  .container .head .account .log-in  {
+  .container .head .account .log-in {
     padding: 6px 10px;
     font-size: 14px;
   }
@@ -217,10 +359,13 @@ body {
   .container .content .add-task input {
     width: 74%;
     margin-right: 10px;
-  }  
+  }
   .container .content .add-task .plus {
     padding: 6px 20px;
     font-size: 14px;
     font-weight: 600;
+  }
+  .container .content .tasks-content .boxes {
+    max-height: calc(109vh - 370px); 
   }
 }
