@@ -38,8 +38,8 @@ addBtn.addEventListener("click", function () {
 });
 
 deleteAll.addEventListener("click", () => {
-  boxes.innerHTML = ""; // Clear tasks container
-  localStorage.removeItem("tasks"); // Remove all tasks from localStorage
+  boxes.innerHTML = ""; 
+  localStorage.removeItem("tasks"); 
   noTasksMsg.style.display = "block";
   tasksCount.innerHTML = "0";
   tasksCompleted.innerHTML = "0";
@@ -54,7 +54,7 @@ function createTasks(taskContent) {
   titleOfBox.innerHTML = `Task <span>${boxes.children.length + 1}</span>`;
 
   let boxContent = document.createElement("p");
-  boxContent.innerHTML = taskContent; // Use the passed content, not theInput.value
+  boxContent.innerHTML = taskContent;
 
   box.appendChild(titleOfBox);
   box.appendChild(boxContent);
