@@ -86,12 +86,11 @@ function updateTask() {
           update.append(deleteTask, completedTask);
           box.appendChild(update);
 
-          // Delete Task
+          
           deleteTask.addEventListener("click", function () {
             const taskContent = box.querySelector("p").textContent;
             box.remove();
 
-            // Update localStorage after deletion
             removeTaskFromLocalStorage(taskContent);
 
             [...boxes.children].forEach((box, index) => {
@@ -109,7 +108,6 @@ function updateTask() {
             }
           });
 
-          // Complete Task
           completedTask.addEventListener("click", function () {
             if (box.classList.toggle("done")) {
               tasksCompleted.innerHTML = parseInt(tasksCompleted.innerHTML) + 1;
@@ -132,7 +130,7 @@ function updateTask() {
 
 function saveTaskToLocalStorage(taskContent) {
   let tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
-  tasks.push(taskContent); // Add the task content to the array
+  tasks.push(taskContent); 
   localStorage.setItem("tasks", JSON.stringify(tasks)); // Save back to localStorage
 }
 
