@@ -30,9 +30,8 @@ addBtn.addEventListener("click", function () {
 
     const taskValue = theInput.value;
 
-    createTasks(taskValue); // Create the task
-    saveTaskToLocalStorage(taskValue); // Save the task to localStorage
-
+    createTasks(taskValue); 
+    saveTaskToLocalStorage(taskValue);
     updateTask(); // Update task functionalities
     theInput.value = ""; // Clear the input after saving
   }
