@@ -10,7 +10,6 @@ let deleteAll = document.querySelector(".delete-all");
 window.onload = function () {
   theInput.focus();
 
-  // Load tasks from localStorage if available
   if (localStorage.getItem("tasks")) {
     noTasksMsg.style.display = "none";
 
