@@ -131,7 +131,7 @@ function updateTask() {
 function saveTaskToLocalStorage(taskContent) {
   let tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
   tasks.push(taskContent); 
-  localStorage.setItem("tasks", JSON.stringify(tasks)); // Save back to localStorage
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
 function removeTaskFromLocalStorage(taskContent) {
