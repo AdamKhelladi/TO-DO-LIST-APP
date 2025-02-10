@@ -28,7 +28,6 @@ addBtn.addEventListener("click", function () {
       noTasksMsg.style.display = "none";
     }
 
-    // Save the input value before clearing
     const taskValue = theInput.value;
 
     createTasks(taskValue); // Create the task
