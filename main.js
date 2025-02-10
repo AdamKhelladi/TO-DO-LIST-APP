@@ -32,8 +32,8 @@ addBtn.addEventListener("click", function () {
 
     createTasks(taskValue); 
     saveTaskToLocalStorage(taskValue);
-    updateTask(); // Update task functionalities
-    theInput.value = ""; // Clear the input after saving
+    updateTask();
+    theInput.value = "";
   }
 });
 
