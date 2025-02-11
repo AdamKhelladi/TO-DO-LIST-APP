@@ -193,8 +193,8 @@ body {
 }
 
 .container .content .tasks-content .boxes::-webkit-scrollbar-thumb {
-  background-color: var(--color-input-background); /* Scrollbar handle color */
-  border-radius: 4px; /* Rounded corners for the scrollbar handle */
+  background-color: var(--color-input-background); 
+  border-radius: 4px;
 }
 
 .container .content .tasks-content .boxes::-webkit-scrollbar-thumb:hover {
