@@ -34,6 +34,7 @@ body {
 }
 /* End Global Rules  */
 
+/* Start App */ 
 .big-container {
   max-width: 1000px;
   height: 100vh;
@@ -385,3 +386,4 @@ body {
   font-size: 15px;
 }
 }
+/* End App */
