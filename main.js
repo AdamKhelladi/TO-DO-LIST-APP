@@ -87,7 +87,6 @@ function updateTask() {
           update.append(deleteTask, completedTask);
           box.appendChild(update);
 
-          
           deleteTask.addEventListener("click", function () {
             const taskContent = box.querySelector("p").textContent;
             box.remove();
