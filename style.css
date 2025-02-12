@@ -220,7 +220,7 @@ body {
 }
 
 .container .content .tasks-content .boxes .box::before {
-  content: ""; /* Creates the pseudo-element */ 
+  content: ""; 
   position: absolute;
   top: 0;
   left: 0;
@@ -235,13 +235,13 @@ body {
 }
 
 .container .content .tasks-content .boxes .box:hover::before {
-  opacity: 1; /* Make it visible on hover */
+  opacity: 1;
 }
 
 .container .content .tasks-content .boxes .box .box-title,
 .container .content .tasks-content .boxes .box p {
   position: relative;
-  z-index: 2; /* Ensure the content stays above the pseudo-element */
+  z-index: 2; 
 }
 
 .container .content .tasks-content .boxes .box .box-title {
