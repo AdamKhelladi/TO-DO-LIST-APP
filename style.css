@@ -181,9 +181,9 @@ body {
   gap: 10px;
   margin-top: 10px;
 
-  max-height: calc(100vh - 370px); /* Adjust this based on the space taken by other elements */
+  max-height: calc(100vh - 370px); /* Adjust this based on the space taken by other elements */ 
   overflow-y: auto;
-  padding-right: 10px; /* For spacing between content and scrollbar */
+  padding-right: 10px; /* For spacing between content and scrollbar */ 
   padding-bottom: 10px;
 }
 
@@ -220,7 +220,7 @@ body {
 }
 
 .container .content .tasks-content .boxes .box::before {
-  content: ""; /* Creates the pseudo-element */
+  content: ""; /* Creates the pseudo-element */ 
   position: absolute;
   top: 0;
   left: 0;
@@ -229,9 +229,9 @@ body {
   border-radius: 24px;
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black for the blur effect */
   backdrop-filter: blur(8px); /* Applies the blur effect */
-  z-index: 99; /* Place it above the box content */
-  opacity: 0; /* Initially invisible */
-  transition: opacity 0.3s ease; /* Smooth transition */
+  z-index: 99;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .container .content .tasks-content .boxes .box:hover::before {
