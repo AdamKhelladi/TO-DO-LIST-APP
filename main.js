@@ -17,7 +17,7 @@ window.onload = function () {
     tasks.forEach((task) => {
       createTasks(task);
     });
-
+    
     updateTask();
   }
 };
@@ -137,7 +137,6 @@ function removeTaskFromLocalStorage(taskContent) {
   tasks = tasks.filter((task) => task !== taskContent);
   localStorage.setItem("tasks", JSON.stringify(tasks)); 
 }
-
 
 
 // ==========================
