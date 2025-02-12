@@ -133,7 +133,6 @@ function saveTaskToLocalStorage(taskContent) {
   tasks.push(taskContent); 
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
-
 function removeTaskFromLocalStorage(taskContent) {
   let tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
   tasks = tasks.filter((task) => task !== taskContent);
