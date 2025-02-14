@@ -138,12 +138,11 @@ function removeTaskFromLocalStorage(taskContent) {
   localStorage.setItem("tasks", JSON.stringify(tasks)); 
 }
 
-
+// ====================================
 
 // ====================================
 // ==== Without Using LocalStorage ====
 // ====================================
-
 
 // let theInput = document.querySelector(".add-task input");
 // let addBtn = document.querySelector(".add-task .plus");
