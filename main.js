@@ -154,6 +154,7 @@ function removeTaskFromLocalStorage(taskContent) {
 
 // let tasksContainer = document.querySelector(".tasks-content");
 // let boxes = document.querySelector(".boxes");
+
 // let noTasksMsg = document.querySelector(".no-tasks");
 // let tasksCount = document.querySelector(".tasks-count span");
 // let tasksCompleted = document.querySelector(".tasks-completed span");
