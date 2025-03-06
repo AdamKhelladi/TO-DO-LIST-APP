@@ -141,7 +141,9 @@ function removeTaskFromLocalStorage(taskContent) {
   localStorage.setItem("tasks", JSON.stringify(tasks)); 
 }
 
+
 // ====================================
+
 
 // ====================================
 // ==== Without Using LocalStorage ====
