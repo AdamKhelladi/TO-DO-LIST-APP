@@ -1,5 +1,6 @@
 let theInput = document.querySelector(".add-task input");
 let addBtn = document.querySelector(".add-task .plus");
+
 let tasksContainer = document.querySelector(".tasks-content");
 let boxes = document.querySelector(".boxes");
 let noTasksMsg = document.querySelector(".no-tasks");
