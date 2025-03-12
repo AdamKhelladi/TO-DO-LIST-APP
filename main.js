@@ -144,7 +144,6 @@ function removeTaskFromLocalStorage(taskContent) {
 
 // ====================================
 
-
 // ====================================
 // ==== Without Using LocalStorage ====
 // ====================================
