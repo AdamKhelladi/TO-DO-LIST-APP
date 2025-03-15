@@ -142,7 +142,6 @@ function removeTaskFromLocalStorage(taskContent) {
 }
 
 
-
 // ====================================
 
 
